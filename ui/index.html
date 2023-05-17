@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="de">
+<head>
+    <title>
+        Hello world
+    </title>
+</head>
+<body>
+    <div id="now"></div>
+    <script>
+        const $now = document.querySelector('#now');
+        setInterval(async () => {
+            const res = await fetch('http://localhost:3000/');
+            const {now} = await res.json();
+            $now.innerText = new Date(now);
+        }, 1500);
+    </script>
+</body>
+</html>
